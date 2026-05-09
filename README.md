@@ -75,3 +75,5 @@ Developer Pushes Code to src/ui/src/**
 
 ![alt](https://github.com/nawaz-ch/CI-CD/blob/c16b262fff51e9669b963d9c9bc271b351c7cf20/02_github_actions.png)
 
+![alt](https://github.com/nawaz-ch/CI-CD/blob/fe9e45cf5e748cb31341f6e0cee732b4d0bdd2fd/21_01_04_ecr_image.png)
+
