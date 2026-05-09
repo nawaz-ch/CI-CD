@@ -29,4 +29,44 @@ use the ui microservice from our real-world retail app and walk through the comp
  - Helm values-ui.yaml is updated with new image tag
  - ArgoCD syncs from Git → deploys new version to EKS cluster
 
-![alt]()
+![alt](https://github.com/nawaz-ch/CI-CD/blob/c16b262fff51e9669b963d9c9bc271b351c7cf20/02_github_actions.png)
+![alt](https://github.com/nawaz-ch/CI-CD/blob/c16b262fff51e9669b963d9c9bc271b351c7cf20/argocd-retail-ui.png)
+
+# GitHub Actions CI: Build & Push UI Microservice to AWS ECR
+This guide establishes a secure, GitOps-ready CI pipeline using GitHub Actions with OIDC authentication (no AWS keys stored in GitHub!). The pipeline automatically builds, tags, and pushes Docker images to Amazon ECR, then updates Helm values to trigger ArgoCD deployments.
+
+# What This Pipeline Achieves
+```bash
+Code Change -> GitHub Actions -> Build Image -> Push to ECR -> Update Helm Values -> ArgoCD Deploys
+```
+**Key Features:**
+- Secure OIDC authentication (no long-lived AWS credentials)
+- Dual tagging strategy (latest + sha-commit)
+- GitOps-ready (auto-updates Helm values)
+- Fast, automated CI triggered on code changes
+
+# GitOps Full Flow (DevOps CI and CD combined flow)
+```bash
+Developer Pushes Code to src/ui/src/**
+            |
+            | (1) Triggers GitHub Actions workflow
+            v
+    GitHub Actions Runner
+            |
+            | (2) Builds Docker image
+            | (3) Pushes to ECR with tags: latest + sha-a1b2c3d
+            | (4) Updates chart/values-ui.yaml (tag: sha-a1b2c3d)
+            | (5) Commits and pushes to Git
+            v
+       Git Repository (main branch)
+            |
+            | (6) ArgoCD polls Git every 3 minutes
+            v
+      ArgoCD Detects Change
+            |
+            | (7) Syncs and deploys new image
+            v
+        EKS Cluster (Running Pods)
+```
+**CI Pipeline Flow**
+![alt](https://github.com/nawaz-ch/CI-CD/blob/c16b262fff51e9669b963d9c9bc271b351c7cf20)
