@@ -69,4 +69,9 @@ Developer Pushes Code to src/ui/src/**
         EKS Cluster (Running Pods)
 ```
 **CI Pipeline Flow**
-![alt](https://github.com/nawaz-ch/CI-CD/blob/c16b262fff51e9669b963d9c9bc271b351c7cf20/21_01_01_GitOps_CI.png)
+![alt](https://github.com/nawaz-ch/CI-CD/blob/077fdebfa3c4624fd64c5a94148e216664c3e72c/21_01_01_GitOps_CI.png)
+
+![alt](https://github.com/nawaz-ch/CI-CD/blob/c16b262fff51e9669b963d9c9bc271b351c7cf20/01_github_actions.png)
+
+![alt](https://github.com/nawaz-ch/CI-CD/blob/c16b262fff51e9669b963d9c9bc271b351c7cf20/02_github_actions.png)
+
